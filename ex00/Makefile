@@ -1,15 +1,16 @@
-NAME = megaphone
+NAME = Megaphone
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = megaphone.cpp
+OBJS = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(SRCFILE)
-	$(CPP) $(CPPFLAGS) -o $(NAME) $(SRC)
+$(NAME): $(OBJS)
+	$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	rm -f $(NAME)
+	rm -f $(NAME) $(OBJS)
 
 fclean: clean
 

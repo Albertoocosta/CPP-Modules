@@ -1,13 +1,12 @@
 #include <iostream>
+#include <cctype>
 
 char	*megaphone(char *word)
 {
 	for (int i = 0; word[i]; i++)
-	{
-			if (word[i] >= 'a' && word[i] <= 'z')
-				word[i] -= 32;
-	}
-	return(word);
+		word[i] = toupper(word[i]);
+		
+	return (word);
 }
 
 int	main(int ac, char **av)
@@ -18,7 +17,7 @@ int	main(int ac, char **av)
 	for (int i = 1; av[i]; i++)
 	{
 		megaphone(av[i]);
-		std::cout << av[i];
+		std::cout << av[i] << (av[i + 1] ? " " : "");
 	}
 	std::cout << std::endl;
 }
