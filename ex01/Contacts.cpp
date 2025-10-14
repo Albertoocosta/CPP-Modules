@@ -1,115 +1,73 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contacts.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/14 20:48:22 by cda-fons          #+#    #+#             */
+/*   Updated: 2025/10/14 20:48:23 by cda-fons         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 
 Contact::Contact()
 {
-	this->_firstName = "";
-	this->_lastName = "";
+	this->_firstname = "";
+	this->_lastname = "";
 	this->_nickname = "";
-	this->_phoneNumber = "";
-	this->_darkestSecret = "";
+	this->_phonenumber = "";
+	this->_darkestsecret = "";
 }
 
 Contact::~Contact(){}
 
-std::string Contact::input_number()
+void Contact::set_firstname(std::string str)
 {
-	std::string input;
-	bool isValid;
-
-	while (true)
-	{
-		isValid = true;
-		std::getline(std::cin, input);
-		if (std::cin.eof())
-			exit(0);
-		if (input.empty())
-		{
-			std::cout << "Input cannot be empty. Please try again: ";
-			continue;
-		}
-		for (size_t i = 0; i < input.length(); i++)
-		{
-			if (!isdigit(input[i]) && input[i] != '+' && input[i] != '-' && input[i] != ' ')
-			{
-				isValid = false;
-				break;
-			}
-		}
-		if (!isValid)
-			std::cout << "Invalid phone number. Please enter digits, spaces, '+' or '-': ";
-		else
-			break;
-	}
-	return input;
+	this->_firstname = str;
 }
 
-std::string Contact::set_input()
+void Contact::set_lastname(std::string str)
 {
-	std::string input;
+	this->_lastname = str;
 
-	while (true)
-	{
-		std::getline(std::cin, input);
-		if (std::cin.eof())
-			exit(0);
-		if (input.empty())
-			std::cout << "Input cannot be empty. Please try again: ";
-		else
-			break;
-	}
-	return input;
+}
+void Contact::set_nickname(std::string str)
+{
+	this->_nickname = str;
 }
 
-std::string truncate_field(const std::string &field)
+void Contact::set_phonenumber(std::string str)
 {
-	if (field.length() > 10)
-		return field.substr(0, 9) + ".";
-	return field;
+	this->_phonenumber = str;
 }
 
-void Contact::setContact(Contact *contact)
+void Contact::set_darkestsecret(std::string str)
 {
-	std::cout << "Enter First Name: ";
-	this->_firstName = contact->set_input();
-	std::cout << "Enter Last Name: ";
-	this->_lastName = contact->set_input();
-	std::cout << "Enter Nickname: ";
-	this->_nickname = contact->set_input();
-	std::cout << "Enter Phone Number: ";
-	this->_phoneNumber = contact->input_number();
-	std::cout << "Enter Darkest Secret: ";
-	this->_darkestSecret = contact->set_input();
+	this->_darkestsecret = str;
 }
 
 
-std::string Contact::getFirstName()
+std::string Contact::get_firstname(void) const
 {
-	return truncate_field(this->_firstName);
-}
-std::string Contact::getLastName()
-{
-	return truncate_field(this->_lastName);
-}
-std::string Contact::getNickname()
-{
-	return truncate_field(this->_nickname);
+	return (this->_firstname);
 }
 
-std::string Contact::getPhoneNumber()
+std::string Contact::get_lastname(void) const
 {
-	return truncate_field(this->_phoneNumber);
+	return (this->_lastname);
 }
-std::string Contact::getDarkestSecret()
+std::string Contact::get_nickname(void) const
 {
-	return truncate_field(this->_darkestSecret);
+	return (this->_nickname);
 }
 
-
-void Contact::displayContact ()
+std::string Contact::get_phonenumber(void) const
 {
-	std::cout << "First Name: " << this->getFirstName() << std::endl;
-	std::cout << "Last Name: " << this->getLastName() << std::endl;
-	std::cout << "Nickname: " << this->getNickname() << std::endl;
-	std::cout << "Phone Number: " << this->getPhoneNumber() << std::endl;
-	std::cout << "Darkest Secret: " << this->getDarkestSecret() << std::endl;
+	return (this->_phonenumber);
+}
+std::string Contact::get_darkestsecret(void) const
+{
+	return (this->_darkestsecret);
 }
