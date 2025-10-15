@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 20:48:35 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/14 20:48:36 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/15 14:50:52 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ private:
 	std::string _darkestsecret;
 public:
 
-	Contact();
-	~Contact();
+    Contact();
+    Contact(const Contact &src);
+    Contact &operator=(const Contact &rhs);
+    ~Contact();
 
 	std::string get_firstname(void) const;
 	std::string get_lastname(void) const;
@@ -40,8 +42,6 @@ public:
 	void		set_nickname(std::string);
 	void		set_phonenumber(std::string);
 	void		set_darkestsecret(std::string);
-
-	
 };
 
 #endif

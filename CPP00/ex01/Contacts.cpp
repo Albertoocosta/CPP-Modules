@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 20:48:22 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/14 20:48:23 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/15 14:25:30 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,28 @@ Contact::Contact()
 	this->_nickname = "";
 	this->_phonenumber = "";
 	this->_darkestsecret = "";
+}
+
+Contact::Contact(const Contact &src)
+{
+	_firstname = src._firstname;
+	_lastname = src._lastname;
+	_nickname = src._nickname;
+	_phonenumber = src._phonenumber;
+	_darkestsecret = src._darkestsecret;
+}
+
+Contact &Contact::operator=(const Contact &rhs)
+{
+	if (this != &rhs)
+	{
+		_firstname = rhs._firstname;
+		_lastname = rhs._lastname;
+		_nickname = rhs._nickname;
+		_phonenumber = rhs._phonenumber;
+		_darkestsecret = rhs._darkestsecret;
+	}
+	return (*this);
 }
 
 Contact::~Contact(){}
