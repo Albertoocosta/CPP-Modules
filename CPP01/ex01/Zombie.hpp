@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:27:38 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/16 12:17:27 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/16 14:57:33 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 # define ZOMBIE_HPP
 
 # include <iostream>
+# include <string>
 
 class Zombie
 {
 	private:
 		std::string _name;
 	public:
-	
-		Zombie(std::string zombieName);
+
+		Zombie();
 		Zombie(const Zombie &src);
 		Zombie &operator=(const Zombie &rhs);
 		~Zombie();
 
+		void  	setName(std::string zombieName);
 		void 	announce(void) const;
 };
-Zombie* newZombie(std::string name);
-void 	randomChump(std::string name);
+
+Zombie* zombieHorde(int n, std::string name);
 
 #endif
