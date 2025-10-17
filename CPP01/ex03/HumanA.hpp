@@ -1,13 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 20:39:51 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/17 20:40:03 by cda-fons         ###   ########.fr       */
+/*   Created: 2025/10/17 18:14:36 by cda-fons          #+#    #+#             */
+/*   Updated: 2025/10/17 18:53:24 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
+
+
+# include <iostream>
+# include <string>
+# include "Weapon.hpp"
+
+class HumanA
+{
+	private:
+		std::string _name;
+		Weapon& _weapon;
+
+	public:
+		HumanA(std::string name, Weapon& weapon);
+		~HumanA();
+
+		void attack() const;
+};
+
+#endif
