@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 18:14:36 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/18 02:30:43 by cda-fons         ###   ########.fr       */
+/*   Created: 2025/10/19 02:29:18 by cda-fons          #+#    #+#             */
+/*   Updated: 2025/10/19 02:32:29 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#include "Harl.hpp"
 
-
-# include <iostream>
-# include <string>
-# include "Weapon.hpp"
-
-class HumanA
+int main (int argc, char **argv)
 {
-	private:
-		std::string _name;
-		Weapon& _weapon;
-
-	public:
-	
-		HumanA(std::string name, Weapon& weapon);
-		HumanA(const HumanA &src);
-		HumanA &operator = (const HumanA &rhs);
-		~HumanA();
-
-		void attack() const;
-};
-
-#endif
+	if (argc != 2)
+	{
+		std::cerr << "Error: Wrong number of arguments" << std::endl;
+		std::cerr << "Usage: ./harlFilter <level>" << std::endl;
+		std::cerr << "Levels: DEBUG, INFO, WARNING, ERROR" << std::endl;
+		return 1;
+	}
+	Harl harl;
+	std::string level = argv[1];
+	harl.filter(level);
+	return 0;
+}

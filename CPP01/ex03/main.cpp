@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 18:14:36 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/18 02:30:43 by cda-fons         ###   ########.fr       */
+/*   Created: 2025/10/18 02:44:38 by cda-fons          #+#    #+#             */
+/*   Updated: 2025/10/18 03:04:56 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
-
-# include <iostream>
-# include <string>
-# include "Weapon.hpp"
-
-class HumanA
+int main ()
 {
-	private:
-		std::string _name;
-		Weapon& _weapon;
-
-	public:
-	
-		HumanA(std::string name, Weapon& weapon);
-		HumanA(const HumanA &src);
-		HumanA &operator = (const HumanA &rhs);
-		~HumanA();
-
-		void attack() const;
-};
-
-#endif
+	{
+		Weapon club = Weapon("Glock G5 .40");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("Knife");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("Knife");
+		HumanB jim("Jim");
+		jim.attack();
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("Bazooka");
+		jim.attack();
+	}
+	return 0;
+}

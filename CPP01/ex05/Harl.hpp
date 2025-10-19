@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 18:14:36 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/18 02:30:43 by cda-fons         ###   ########.fr       */
+/*   Created: 2025/10/18 21:21:43 by cda-fons          #+#    #+#             */
+/*   Updated: 2025/10/19 00:41:25 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#include <string>
+#include <iostream>
 
-
-# include <iostream>
-# include <string>
-# include "Weapon.hpp"
-
-class HumanA
-{
+class	Harl {
 	private:
-		std::string _name;
-		Weapon& _weapon;
-
+		void debug(void) const;
+		void info(void) const;
+		void warning(void) const;
+		void error (void) const;
 	public:
-	
-		HumanA(std::string name, Weapon& weapon);
-		HumanA(const HumanA &src);
-		HumanA &operator = (const HumanA &rhs);
-		~HumanA();
+		Harl();
+		Harl(const Harl &src);
+		Harl& operator=(const Harl& src);
+		~Harl();
 
-		void attack() const;
+		void complain(std::string level);
 };
-
-#endif
