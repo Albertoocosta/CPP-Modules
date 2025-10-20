@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 20:48:25 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/18 20:26:27 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/20 15:46:05 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,29 @@ std::string truncate_field(const std::string &field)
 		return (field);
 }
 
+int PhoneBook::handle_input(std::istream& input, std::string& content, const std::string& text)
+{
+    std::cout << text << std::endl;
+    std::getline(input, content);
+    if (input.eof())
+    {
+        std::cout << "\nEOF detected. Exiting Phonebook." << std::endl;
+        input.clear();
+        return 1;
+    }
+	return 0;
+}
+
 void PhoneBook::add_contact()
 {
 	std::string firstname, lastname, nickname, phonenumber, darkestsecret;
-	std::cout << "First name: " << std::endl;
-	std::getline(std::cin, firstname);
-	if (std::cin.eof())
-    {
-        std::cout << "\nEOF detected. Exiting contact creation." << std::endl;
-        std::cin.clear();
-        return;
-    }
-	std::cout << "Last name: " << std::endl;
-	std::getline(std::cin, lastname);
-	if (std::cin.eof())
-    {
-        std::cout << "\nEOF detected. Exiting contact creation." << std::endl;
-        std::cin.clear();
-        return;
-    }
-	std::cout << "Nickname: " << std::endl;
-	std::getline(std::cin, nickname);
-	if (std::cin.eof())
-    {
-        std::cout << "\nEOF detected. Exiting contact creation." << std::endl;
-        std::cin.clear();
-        return;
-    }
+	
+	if (handle_input(std::cin, firstname, "First name: "))
+		return;
+	if (handle_input(std::cin, lastname, "Last name: "))
+		return;
+	if (handle_input(std::cin, nickname, "Nickname: "))
+		return;
 	bool valid = false;
 	while (!valid)
 	{
@@ -61,7 +57,7 @@ void PhoneBook::add_contact()
 		std::getline(std::cin, phonenumber);
 		if (std::cin.eof())
 		{
-			std::cout << "\nEOF detected. Exiting contact creation." << std::endl;
+			std::cout << "\nEOF detected. Exiting Phonebook." << std::endl;
 			std::cin.clear();
 			return;
 		}
@@ -78,26 +74,19 @@ void PhoneBook::add_contact()
 			}
 		}
 	}
-	
-	std::cout << "Darkest Secret: " << std::endl;
-	std::getline(std::cin, darkestsecret);
-	if (std::cin.eof())
-    {
-        std::cout << "\nEOF detected. Exiting contact creation." << std::endl;
-        std::cin.clear();
-        return;
-    }
+	if (handle_input(std::cin, darkestsecret, "Darkest Secret: "))
+		return;
 	if (firstname.empty() || lastname.empty() || nickname.empty() || phonenumber.empty() || darkestsecret.empty())
 	{
 		std::cout << "All fields are required." << std::endl;
 		return;
 	}
 
-	this->contacts[index % 8].set_firstname(firstname);
-	this->contacts[index % 8].set_lastname(lastname);
-	this->contacts[index % 8].set_nickname(nickname);
-	this->contacts[index % 8].set_phonenumber(phonenumber);
-	this->contacts[index % 8].set_darkestsecret(darkestsecret);
+	this->contacts[index % MAX_CONTACTS].set_firstname(firstname);
+	this->contacts[index % MAX_CONTACTS].set_lastname(lastname);
+	this->contacts[index % MAX_CONTACTS].set_nickname(nickname);
+	this->contacts[index % MAX_CONTACTS].set_phonenumber(phonenumber);
+	this->contacts[index % MAX_CONTACTS].set_darkestsecret(darkestsecret);
 	std::cout << index << std::endl;
 	index++;
 }
