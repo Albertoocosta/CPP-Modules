@@ -6,9 +6,12 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:21:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/19 02:23:28 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/19 17:14:02 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <string>
 #include <iostream>
@@ -28,3 +31,5 @@ class	Harl {
 		void complain(std::string level);
 		void filter(std::string level);
 };
+
+#endif
