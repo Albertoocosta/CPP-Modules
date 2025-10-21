@@ -23,27 +23,31 @@ int main (void)
 	while (true)
 	{
 		if (phonebook.handle_input(std::cin, command, "Please enter a command (ADD, SEARCH, EXIT): "))
+		{
+			std::cout << "\nEOF detected. Exiting PhoneBook." << std::endl;
 			break;
+		}
 		if (command == "ADD" || command == "add" || command == "Add")
 		{
 			phonebook.add_contact();
 			if (std::cin.eof())
-				return 1;
+			{
+				std::cout << "\nEOF detected. Exiting PhoneBook." << std::endl;
+				break;
+			}
 		}
 		else if (command == "SEARCH" || command == "search" || command == "Search")
 		{
 			phonebook.search_contact();
 			if (std::cin.eof())
-				return 1;
-		}	
-		
-		else if (command == "EXIT" || command == "exit" || command == "Exit" || std::cin.eof())
-		{
-			if (std::cin.eof())
 			{
 				std::cout << "\nEOF detected. Exiting PhoneBook." << std::endl;
 				break;
-			}	
+			}
+		}	
+		
+		else if (command == "EXIT" || command == "exit" || command == "Exit")
+		{
 			break ;
 		}	
 		else

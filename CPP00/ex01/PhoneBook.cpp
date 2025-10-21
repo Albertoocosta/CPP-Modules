@@ -33,7 +33,6 @@ int PhoneBook::handle_input(std::istream& input, std::string& content, const std
     std::getline(input, content);
     if (input.eof())
     {
-        std::cout << "\nEOF detected. Exiting Phonebook." << std::endl;
         input.clear();
         return 1;
     }
@@ -57,7 +56,6 @@ void PhoneBook::add_contact()
 		std::getline(std::cin, phonenumber);
 		if (std::cin.eof())
 		{
-			std::cout << "\nEOF detected. Exiting Phonebook." << std::endl;
 			std::cin.clear();
 			return;
 		}
@@ -87,14 +85,19 @@ void PhoneBook::add_contact()
 	this->contacts[index % MAX_CONTACTS].set_nickname(nickname);
 	this->contacts[index % MAX_CONTACTS].set_phonenumber(phonenumber);
 	this->contacts[index % MAX_CONTACTS].set_darkestsecret(darkestsecret);
-	std::cout << index << std::endl;
 	index++;
 }
 
 void PhoneBook::search_contact()
 {
-	int index;
-
+	int idx;
+	int total_contacts;
+	
+	if (this->index < MAX_CONTACTS) 
+		total_contacts = this->index;
+	else
+		total_contacts = MAX_CONTACTS;
+		
 	if (this->index == 0)
 	{
 		std::cout << "No contacts available." << std::endl;
@@ -104,7 +107,7 @@ void PhoneBook::search_contact()
 	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
 
-	for (int i = 0; i < this->index; i++)
+	for (int i = 0; i < total_contacts; i++)
 	{
 		std::cout << "|" << std::setw(10) << i + 1
 				  << "|" << std::setw(10) << truncate_field(contacts[i].get_firstname())
@@ -115,15 +118,14 @@ void PhoneBook::search_contact()
 	std::cout << "-------------------------------------------" << std::endl;
 
 	std::cout << "Enter the index of the contact to view details: ";
-	std::cin >> index;
+	std::cin >> idx;
     if (std::cin.eof())
     {
-        std::cout << "\nEOF detected." << std::endl;
         std::cin.clear();
         return;
     }
 	std::cin.ignore();
-	if (std::cin.fail() || index < 1 || index > this->index)
+	if (std::cin.fail() || idx < 1 || idx > this->index)
 	{
 		std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -132,10 +134,10 @@ void PhoneBook::search_contact()
 	}
 	else
 	{
-		std::cout << "First Name: " << this->contacts[index - 1].get_firstname() << std::endl;
-		std::cout << "Last Name: " << this->contacts[index - 1].get_lastname() << std::endl;
-		std::cout << "Nickname: " << this->contacts[index - 1].get_nickname() << std::endl;
-		std::cout << "Phone Number: " << this->contacts[index - 1].get_phonenumber() << std::endl;
-		std::cout << "Darkest Secret: " << this->contacts[index - 1].get_darkestsecret() << std::endl;
+		std::cout << "First Name: " << this->contacts[idx - 1].get_firstname() << std::endl;
+		std::cout << "Last Name: " << this->contacts[idx - 1].get_lastname() << std::endl;
+		std::cout << "Nickname: " << this->contacts[idx - 1].get_nickname() << std::endl;
+		std::cout << "Phone Number: " << this->contacts[idx - 1].get_phonenumber() << std::endl;
+		std::cout << "Darkest Secret: " << this->contacts[idx - 1].get_darkestsecret() << std::endl;
 	}
 }

@@ -18,7 +18,7 @@
 #include <string>
 #include "Contacts.hpp"
 
-#define MAX_CONTACTS 8
+#define MAX_CONTACTS 3
 
 class PhoneBook
 {
