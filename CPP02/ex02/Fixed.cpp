@@ -60,6 +60,101 @@ int Fixed::toInt(void) const
 	return this->_value >> this->_fractionalBits;
 }
 
+bool Fixed::operator<(const Fixed& rhs) const
+{
+    return this->_value < rhs._value;
+}
+
+bool Fixed::operator>(const Fixed& rhs) const
+{
+    return this->_value > rhs._value;
+}
+
+bool Fixed::operator<=(const Fixed& rhs) const
+{
+    return this->_value <= rhs._value;
+}
+
+bool Fixed::operator>=(const Fixed& rhs) const
+{
+    return this->_value >= rhs._value;
+}
+
+bool Fixed::operator==(const Fixed& rhs) const
+{
+    return this->_value == rhs._value;
+}
+
+bool Fixed::operator!=(const Fixed& rhs) const
+{
+    return this->_value != rhs._value;
+}
+
+Fixed Fixed::operator+(const Fixed& rhs) const
+{
+    return Fixed(this->toFloat() + rhs.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed& rhs) const
+{
+    return Fixed(this->toFloat() - rhs.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed& rhs) const
+{
+    return Fixed(this->toFloat() * rhs.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed& rhs) const
+{
+    return Fixed(this->toFloat() / rhs.toFloat());
+}
+
+Fixed& Fixed::operator++()
+{
+    this->_value++;
+    return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+    Fixed temp(*this);
+    this->_value++;
+    return temp;
+}
+
+Fixed& Fixed::operator--()
+{
+    this->_value--;
+    return *this;
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed temp(*this);
+    this->_value--;
+    return temp;
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+    return (a < b) ? a : b;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+    return (a < b) ? a : b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+    return (a > b) ? a : b;
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+    return (a > b) ? a : b;
+}
 
 int Fixed::getRawBits(void) const
 {
