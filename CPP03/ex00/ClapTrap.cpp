@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 21:43:24 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/28 00:09:05 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/29 13:15:21 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ClapTrap::ClapTrap(const ClapTrap& src)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& rhs)
 {
-	std::cout << "ClapTrap " << this->_name << " destructor called" << std::endl;
+	std::cout << "ClapTrap assigment operator called" << std::endl;
 	if (this != &rhs)
 	{
 		this->_name = rhs._name;
