@@ -58,5 +58,7 @@
 		"cinttypes": "cpp",
 		"typeinfo": "cpp",
 		"variant": "cpp"
-	}
+	},
+	"editor.insertSpaces": false,
+	"editor.tabSize": 1
 }

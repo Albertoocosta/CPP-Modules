@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 13:29:09 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/30 16:26:50 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/30 13:58:36 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 # include <iostream>
 # include <string>
 # include "ClapTrap.hpp"
-# include "ScavTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
 		FragTrap();
