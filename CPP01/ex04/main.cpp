@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:16:46 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/18 20:59:44 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/31 12:09:08 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	if (argc != 4)
 	{
 		std::cerr << "Error: Wrong number of arguments" << std::endl;
-		std::cerr << "Usage: ./Replace_it <filename> <Oringinal_word> <Word_to_replace>" << std::endl;
+		std::cerr << "Usage: ./replace_it <filename> <Original_word> <Word_to_replace>" << std::endl;
 		return 1;
 	}
 	

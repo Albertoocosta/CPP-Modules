@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 01:40:35 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/19 01:58:48 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/31 12:44:26 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
 	Harl harl;
-
+	
 	std::cout << "All valid complaints level" << std::endl;
 	std::cout << std::endl;
 

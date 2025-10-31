@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 18:14:36 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/18 02:30:43 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/31 12:02:30 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class HumanA
 		Weapon& _weapon;
 
 	public:
-	
 		HumanA(std::string name, Weapon& weapon);
 		HumanA(const HumanA &src);
 		HumanA &operator = (const HumanA &rhs);

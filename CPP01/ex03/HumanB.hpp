@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 18:53:51 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/18 02:31:09 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/31 12:06:33 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ class HumanB
 		Weapon* _weapon;
 
 	public:
-	
-		HumanB();
+
 		HumanB(std::string name);
 		HumanB(const HumanB &src);
 		HumanB &operator = (const HumanB &rhs);

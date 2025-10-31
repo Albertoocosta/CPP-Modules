@@ -6,15 +6,11 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 20:40:30 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/18 03:06:02 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/31 12:06:26 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
-
-HumanB::HumanB() : _name(""), _weapon(NULL)
-{
-}
 
 HumanB::HumanB(std::string name) : _name(name), _weapon(NULL)
 {

@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 02:44:38 by cda-fons          #+#    #+#             */
-/*   Updated: 2025/10/18 03:04:56 by cda-fons         ###   ########.fr       */
+/*   Updated: 2025/10/31 11:47:39 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main ()
 		jim.attack();
 		jim.setWeapon(club);
 		jim.attack();
-		club.setType("Bazooka");
+		club.setType("Basooka");
 		jim.attack();
 	}
 	return 0;
