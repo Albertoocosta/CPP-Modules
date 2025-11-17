@@ -1,8 +1,8 @@
-NAME = Polymorphism
+NAME = DeepCopy
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
