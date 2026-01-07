@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 16:33:39 by cda-fons          #+#    #+#             */
-/*   Updated: 2026/01/06 20:44:30 by cda-fons         ###   ########.fr       */
+/*   Updated: 2026/01/07 17:11:20 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include "Form.hpp"
 
 class Bureaucrat
 {
@@ -32,6 +33,7 @@ class Bureaucrat
 		int			getGrade() const;
 		void		increment();
 		void		decrement();
+		void		signForm(Form& form);
 
 		class GradeTooHighException : public std::exception
 		{

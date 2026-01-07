@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 16:32:58 by cda-fons          #+#    #+#             */
-/*   Updated: 2026/01/06 21:12:14 by cda-fons         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:59:15 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,19 @@ void	Bureaucrat::decrement()
 		throw GradeTooLowException();
 	else
 		this->grade++;
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+	try{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << this->getName() << " couldn't sign  " << form.getName() << 
+		" because " << e.what() << std::endl;
+	}
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
