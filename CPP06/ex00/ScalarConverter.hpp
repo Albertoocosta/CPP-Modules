@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:09:21 by cda-fons          #+#    #+#             */
-/*   Updated: 2026/01/09 14:31:44 by cda-fons         ###   ########.fr       */
+/*   Updated: 2026/02/12 15:30:24 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sstream>
 # include <string>
 # include <cstdlib>
+# include <climits>
 # include <limits>
 # include <cmath>
 # include <iomanip>

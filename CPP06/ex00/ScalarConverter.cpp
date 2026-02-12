@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:37:52 by cda-fons          #+#    #+#             */
-/*   Updated: 2026/01/09 15:03:56 by cda-fons         ###   ########.fr       */
+/*   Updated: 2026/02/12 15:31:12 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ ScalarConverter& ScalarConverter::operator=(ScalarConverter const& rhs){  (void)
 
 ScalarConverter::~ScalarConverter() {}
 
+bool is_inf(double x)
+{
+    return x == std::numeric_limits<double>::infinity() ||
+           x == -std::numeric_limits<double>::infinity();
+}
 
 
 void ScalarConverter::converter(const std::string& literal)
@@ -43,16 +48,16 @@ void ScalarConverter::converter(const std::string& literal)
 		}
 	}
 
-	if ( std::isnan(value) || std::isinf(value)|| value < std::numeric_limits<char>::min() || 
-		value > std::numeric_limits<char>::max() )
+	if ( std::isnan(value) || is_inf(value)|| value < static_cast<char>(CHAR_MIN) || 
+		value > static_cast<char>(CHAR_MAX) )
 		std::cout << "char: impossible" << std::endl;
 	else if (std::isprint(static_cast<char>(value)))
 		std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	
-	if ( std::isnan(value) || std::isinf(value)|| value < std::numeric_limits<int>::min() || 
-		value > std::numeric_limits<int>::max() )
+	if ( std::isnan(value) || is_inf(value)|| value < static_cast<int>(INT_MIN) || 
+		value > static_cast<int>(INT_MAX) )
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(value) << std::endl;

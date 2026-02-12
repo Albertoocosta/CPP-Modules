@@ -6,13 +6,12 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 19:44:00 by cda-fons          #+#    #+#             */
-/*   Updated: 2026/01/09 19:58:37 by cda-fons         ###   ########.fr       */
+/*   Updated: 2026/02/12 15:18:46 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 #include "Data.hpp"
-#include <iostream>
 
 int main() {
 	Data myData;
@@ -23,13 +22,13 @@ int main() {
 	std::cout << "Original Pointer: " << &myData << std::endl;
 	std::cout << "Original Data:    " << myData.name << " | " << myData.value << std::endl;
 
-	uintptr_t raw = Serializer::serialize(&myData);
+	size_t raw = Serializer::serialize(&myData);
 
 	std::cout << "Serialized (raw): " << raw << " (decimal)" << std::endl;
 
 	Data* ptr = Serializer::deserialize(raw);
 
-	std::cout << "Deserialized Ptr: " << ptr << std::endl;
+	std::cout << "Deserialized Ptr: " << ptr << " (pointer)" << std::endl;
 
 	if (ptr == &myData) {
 		std::cout << "SUCCESS: Pointers match!" << std::endl;

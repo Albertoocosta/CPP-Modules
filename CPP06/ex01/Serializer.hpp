@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 19:46:02 by cda-fons          #+#    #+#             */
-/*   Updated: 2026/01/09 19:51:36 by cda-fons         ###   ########.fr       */
+/*   Updated: 2026/02/12 15:15:25 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "Data.hpp"
 #include <stdint.h>
+#include <iostream>
 
 class Serializer
 {
